@@ -1,41 +1,38 @@
-# Python 2 code
-# -*- coding: utf-8 -*-
+# 1. Друк без дужок
+print "1. Print без дужок"  # Виводимо текст у консоль
 
-# 1. Print statement
-print "1. Print without parentheses"
+# 2. Цілочисельне ділення
+print "2. 5 / 2 =", 5 / 2  # Звичайне ділення int/int → 2, не 2.5
 
-# 2. Integer division
-print "2. 5 / 2 =", 5 / 2  # gives 2, not 2.5
+# 3. Unicode рядки
+s = u"3. Unicode рядок у Python 2"
+print s  # Виводимо Unicode рядок
 
-# 3. Unicode strings
-s = u"3. Unicode string in Python 2"
-print s
+# 4. range повертає список
+print "4. range(5):", range(5)  # Створюємо список від 0 до 4
 
-# 4. range returns a list
-print "4. range(5):", range(5)
+# 5. input та raw_input
+name = raw_input("5. Введіть ваше ім'я: ")  # користувач вводить текст
+number = input("Введіть число: ")           # користувач вводить число (int)
 
-# 5. input and raw_input
-name = raw_input("5. Enter your name: ")
-number = input("Enter a number: ")
-
-# 6. Exception syntax
+# 6. Синтаксис обробки виключень
 try:
     1 / 0
-except ZeroDivisionError, e:
-    print "6. Exception:", e
+except ZeroDivisionError, e:  # В Python 2 виняток пишеться так
+    print "6. Виняток:", e
 
-# 7. dict.keys() returns a list
+# 7. dict.keys() повертає список
 d = {'a': 1, 'b': 2}
-print "7. dict.keys():", d.keys()
+print "7. dict.keys():", d.keys()  # Виводимо список ключів словника
 
-# 8. Iteritems for dictionary
+# 8. Iteritems для словника
 print "8. dict.iteritems():"
-for k, v in d.iteritems():
+for k, v in d.iteritems():  # Перебираємо ключі та значення словника
     print k, v
 
-# 9. long type for big numbers
+# 9. long тип для великих чисел
 big = 12345678901234567890L
-print "9. Long number:", big
+print "9. Long число:", big
 
-# 10. cmp function exists
-print "10. cmp(3, 5):", cmp(3, 5)
+# 10. cmp функція існує
+print "10. cmp(3, 5):", cmp(3, 5)  # Повертає -1, 0 або 1
