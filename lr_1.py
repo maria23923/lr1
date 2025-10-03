@@ -1,4 +1,35 @@
-# Part 4
+import os
+
+# Імена потрібних файлів
+required_files = ["math.txt", "statistics.txt", "physics.txt", "student_names.txt"]
+
+# Перевірка наявності файлів
+for file in required_files:
+    if file not in os.listdir():
+        print(f"File {file} not find!")
+        exit(1)
+
+# Функція для зчитування чисел з файлу
+def read_grades(filename):
+    with open(filename, "r", encoding="utf-8") as f:
+        return [int(line.strip()) for line in f if line.strip().isdigit()]
+
+# Функція для зчитування імен
+def read_names(filename):
+    with open(filename, "r", encoding="utf-8") as f:
+        return [line.strip() for line in f if line.strip()]
+
+# Зчитуємо дані
+math_grades = read_grades("math.txt")
+statistics_grades = read_grades("statistics.txt")
+physics_grades = read_grades("physics.txt")
+student_names = read_names("student_names.txt")
+
+# Перевірка довжин
+if not (len(student_names) == len(math_grades) == len(statistics_grades) == len(physics_grades)):
+    print("Error")
+    exit(1)
+
 # Створюємо словник
 students = {}
 for i, name in enumerate(student_names):
@@ -45,4 +76,3 @@ low = [name for name, avg in averages.items() if avg < 50]
 print(f"Number of students {len(low)}")
 for name in low:
     print(name)
-
